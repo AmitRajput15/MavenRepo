@@ -7,7 +7,7 @@ public class JenkinsCalc {
 		return a+b;
 	}
 	public int subtract(int a, int b) {
-		System.out.println("-------*****Testing Jenkins Integeration with maven*******-------");
+		System.out.println("-------*****Testing Jenkins Integeration with git repo maven*******-------");
 		return a-b;
 	}
 
