@@ -19,9 +19,12 @@ pipeline{
 	 		stage('Consolidate Results'){
 				steps{
 						input ("Do you want to Capture Results?")
-						junit'**/target/surefire-reports/Test*.xml'
-						archieve 'target/*.jar'
 					 }
+				}
+			stage('Email Build Status'){
+				steps{
+					mail body: "${env.JOB_NAME}-Build # ${env.BUILD_NUMBER}- ${currentBuild.currentResult}\n\n Check console Output at $(env.BUILD_URL) to view the results.",subject:"${env.JOB_NAME}-Build # ${env.BUILD_NUMBER}- ${currentBuild.currentResult}!!" to:'amitrajput0072@gmail.com'
+					}
 				}
 			}
 		}	
